@@ -14,3 +14,8 @@ COPY --from=ghcr.io/redfieldchristabel/php_grpc:8.3 /usr/local/lib/php/extension
 
 # Copy the gRPC PHP configuration file
 COPY --from=ghcr.io/redfieldchristabel/php_grpc:8.3 /usr/local/etc/php/conf.d/docker-php-ext-grpc.ini /usr/local/etc/php/conf.d/docker-php-ext-grpc.ini
+```
+
+# License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
