@@ -5,6 +5,11 @@ This repository hosts a Docker image that includes the pre-built [gRPC PHP exten
 > **Note:** For PHP 8.1 and 8.2 (Debian-based images), consider using the alternative image: [ghcr.io/spiral/php-grpc](https://github.com/spiral/php-grpc).
 
 > **Note:** This setup currently only contains gRPC for Debian-based PHP images.
+## Supported PHP Versions
+
+- PHP 8.3
+- PHP 8.4
+
 
 ## How to Use
 
