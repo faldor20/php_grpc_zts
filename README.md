@@ -14,7 +14,25 @@ COPY --from=ghcr.io/redfieldchristabel/php_grpc:8.3 /usr/local/lib/php/extension
 
 # Copy the gRPC PHP configuration file
 COPY --from=ghcr.io/redfieldchristabel/php_grpc:8.3 /usr/local/etc/php/conf.d/docker-php-ext-grpc.ini /usr/local/etc/php/conf.d/docker-php-ext-grpc.ini
+
+# Enable the gRPC PHP extension
+RUN docker-php-ext-enable grpc
+
+# Install protobuf via PECL and enable it
+RUN pecl install protobuf && docker-php-ext-enable protobuf
+
+# For a smaller image layer, install protobuf and enable both grpc and protobuf in one command
+RUN pecl install protobuf && docker-php-ext-enable grpc protobuf
 ```
+
+## Example of grpc and protobuf for php client
+```dockerfile
+COPY --from=ghcr.io/redfieldchristabel/php_grpc:8.3 /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
+COPY --from=ghcr.io/redfieldchristabel/php_grpc:8.3 /usr/local/etc/php/conf.d/docker-php-ext-grpc.ini /usr/local/etc/php/conf.d/docker-php-ext-grpc.ini
+
+RUN pecl install protobuf && docker-php-ext-enable grpc protobuf
+```
+
 
 # License
 
