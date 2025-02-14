@@ -1,4 +1,6 @@
-FROM php:8.3-fpm AS grpc
+ARG PHP_TAG
+
+FROM php:${PHP_TAG} AS grpc
 
 # Install build dependencies needed for compiling the grpc extension
 RUN apt-get update && apt-get install -y \
