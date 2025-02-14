@@ -4,6 +4,8 @@ This repository hosts a Docker image that includes the pre-built [gRPC PHP exten
 
 > **Note:** For PHP 8.1 and 8.2 (Debian-based images), consider using the alternative image: [ghcr.io/spiral/php-grpc](https://github.com/spiral/php-grpc).
 
+> **Note:** This setup currently only contains gRPC for Debian-based PHP images.
+
 ## How to Use
 
 In your Dockerfile, use the multi-stage build feature to copy the pre-built gRPC extension and its configuration into your PHP image. For PHP 8.3, for example, you can add the following lines:
@@ -32,7 +34,6 @@ COPY --from=ghcr.io/redfieldchristabel/php_grpc:8.3 /usr/local/etc/php/conf.d/do
 
 RUN pecl install protobuf && docker-php-ext-enable grpc protobuf
 ```
-
 
 # License
 
