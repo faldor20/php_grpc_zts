@@ -9,15 +9,15 @@ export TAG_NAME=$tagName
 read -p "Do you want to also tag this image as 'latest'? (y/N) " tagLatest
 
 echo "Building image..."
-docker build --build-arg PHP_TAG=$TAG_NAME -t ghcr.io/redfieldchristabel/php_grpc:$TAG_NAME .
+docker build --build-arg PHP_TAG=$TAG_NAME -t ghcr.io/faldor20/php_grpc_zts:$TAG_NAME .
 
 if [[ "$tagLatest" =~ ^[Yy] ]]; then
-  docker tag ghcr.io/redfieldchristabel/php_grpc:$TAG_NAME ghcr.io/redfieldchristabel/php_grpc:latest
+  docker tag ghcr.io/faldor20/php_grpc_zts:$TAG_NAME ghcr.io/faldor20/php_grpc_zts:latest
 fi
 
 echo "Pushing image..."
-docker push ghcr.io/redfieldchristabel/php_grpc:$TAG_NAME
+docker push ghcr.io/faldor20/php_grpc_zts:$TAG_NAME
 
 if [[ "$tagLatest" =~ ^[Yy] ]]; then
-  docker push ghcr.io/redfieldchristabel/php_grpc:latest
+  docker push ghcr.io/faldor20/php_grpc_zts:latest
 fi
